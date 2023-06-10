@@ -1,0 +1,133 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --index: calc(1vw + 1vh);
+}
+
+@font-face {
+   font-family: Kamerik-3d;
+   src: url(../fonts/kamerik205-heavy.woff2);
+   font-weight: 900;
+}
+
+@font-face {
+   font-family: Merriweather-italic-3d;
+   src: url(../fonts/merriweather-regular-italic.woff2);
+}
+
+body {
+   background-color: black;
+   color: white;
+   font-family: Kamerik-3d;
+   scrollbar-width: thin;
+   scrollbar-color: transparent transparent;
+}
+
+
+body::-webkit-scrollbar {
+   width: 0px;
+}
+
+.logo {
+   position: absolute;
+   width: calc(var(--index) * 7.8);
+   height: calc(var(--index) * 7.8);
+   background-repeat: no-repeat;
+   left: 50%;
+   top: 5%;
+   z-index: 1;
+   transform: translateX(-50%);
+}
+
+.layers {
+   perspective: 1000px;
+   overflow: hidden;
+}
+
+.layers__container {
+   height: 100vh;
+   min-height: 500px;
+   transform-style: preserve-3d;
+   transform: rotatex(var(--move-y)) rotateY(var(--move-x));
+   transition: transform 1s cubic-bezier(.05, .5, 0, 1);
+   will-change: transform;
+}
+
+.layers__item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   inset: -5vw;
+   background-size: cover;
+   background-position: center;
+}
+
+.layer-1 {
+   transform: translateZ(-55px) scale(1.06);
+}
+
+.layer-2 {
+   transform: translateZ(80px) scale(0.9);
+}
+
+.layer-3 {
+   transform: translateZ(150px) scale(0.88);
+}
+
+.layer-4 {
+   transform: translateZ(180px) scale(0.9);
+}
+
+.layer-5 {
+   transform: translateZ(200px) scale(0.9);
+}
+
+.layer-6 {
+   transform: translateZ(250px);
+}
+
+.hero-content {
+   font-size: calc(var(--index) * 2.7);
+   text-transform: uppercase;
+   text-align: center;
+   max-width: 80%;
+   letter-spacing: calc(var(--index) * -.1);
+   margin-top: calc(var(--index) * 5);
+}
+
+.hero-content span {
+   display: block;
+}
+
+.hero-content__paragraph {
+   text-transform: none;
+   font-family: Merriweather-italic-3d;
+   letter-spacing: normal;
+   font-size: calc(var(--index) * .7);
+   line-height: 3;
+}
+
+.button-start {
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   text-transform: uppercase;
+   font-size: calc(var(--index) * .71);
+   letter-spacing: -.02vw;
+   padding: 10px 15px;
+   background-color: transparent;
+   box-shadow: none;
+   border: rgb(255 255 255 / .4) 3px solid;
+   border-radius: 10rem;
+   color: white;
+   outline: none;
+   cursor: pointer;
+}
+
+.layer-4 , .layer-5, .layer-6 {
+   pointer-events: none;
+}
